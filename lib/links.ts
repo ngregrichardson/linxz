@@ -43,7 +43,7 @@ export const createLink = async (_: CreateLinkFormState, formData: FormData) => 
 
         const createdLink = newLink[0];
 
-        const url = `http${process.env.NODE_ENV === 'production' ? 's://linxz.cc' : '://localhost:3000'}/l/${slug}`;
+        const url = `${process.env.NODE_ENV === 'production' ? process.env.BASE_URL : 'http://localhost:3000'}/l/${slug}`;
 
         return {
             message: `You link was created and copied to your clipboard! ${createdLink.expirationType === EXPIRATION_TYPE.NONE ? 'This link will never expire.' : `This link will expire ${createdLink.expirationType === EXPIRATION_TYPE.CLICKS ? `after ${createdLink.expirationValue} clicks.` : `after ${format(new Date(createdLink.expirationValue), 'h:mm aaaa \'on\' MMM do, yyyy')}`}`}`,
