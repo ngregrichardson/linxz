@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1714497030956,
+      "tag": "0000_special_sumo",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1714497148506,
+      "tag": "0001_even_prima",
+      "breakpoints": true
+    }
+  ]
+}

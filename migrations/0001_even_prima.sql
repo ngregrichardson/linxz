@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `links_slug_unique` ON `links` (`slug`);
