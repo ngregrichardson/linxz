@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔗 Linxz | Share links without hesitation
 
-## Getting Started
+<p align="center">
+    <img src="repo/preview.png" />
+</p>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Linxz is an easy-to-use, self-hostable, and private link sharing platform. It provides a simple interface to shorten links and includes granular control over their experation. You can specify a date and time or a number of clicks until the link is deleted forever. Or, if you want it forever, that works too.
+## Self-Hosting
+You can technically get it up and running yourself right now, but there is a Docker image on the way!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
+If you would like to contribute, please feel free to fork the repository and submit a pull request. I will review it as soon as possible. I've been enjoying [Bun](https://bun.sh/), but feel free to develop with your preferred runtime.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+> **Note:** To use this without Bun, you may need to change some `package.json` scripts, add a lock file, etc. Please do not include these changes in your pull request.
 
-## Learn More
+### Running for Development
 
-To learn more about Next.js, take a look at the following resources:
+All steps will use `bun` commands, but you're welcome to replace them with whatever you prefer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository
+2. Run `bun install`. I've been [Bun](https://bun.sh/), but it should work on any other runtime (assuming you change a few of the `package.json` scripts).
+3. Add a `.env` file with the following contents: TODO
+4. Run `bun dev`.
