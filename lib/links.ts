@@ -1,5 +1,6 @@
 'use server';
 
+import { validateToken } from "@/lib/cloudflare";
 import { db } from "@/lib/db";
 import { EXPIRATION_TYPE, links } from "@/lib/db/schema";
 import { insertLinkSchema } from "@/lib/db/validation";
@@ -15,6 +16,7 @@ const filteredSchema = insertLinkSchema.omit({
     expirationValue: z.string().optional().pipe(z.coerce.number().min(0).int().default(0)),
     metaPassthrough: z.string().optional().pipe(z.coerce.boolean().default(false)),
     url: z.string().url(),
+    'cf-turnstile-response': process.env.CFTS_SECRET_KEY ? z.string().min(1) : z.string().optional(),
 });
 
 const AUTO_SLUG_LENGTH = 6;
@@ -23,8 +25,19 @@ export const createLink = async (_: CreateLinkFormState, formData: FormData) => 
     const validatedFields = filteredSchema.safeParse(Object.fromEntries(formData));
 
     if(!validatedFields.success) {
+        console.log(validatedFields.error.flatten());
         return {
             error: validatedFields.error.flatten()
+        }
+    }
+
+    if(process.env.CFTS_SECRET_KEY) {
+        const { success } = await validateToken(validatedFields.data['cf-turnstile-response']!, process.env.CFTS_SECRET_KEY);
+
+        if(!success) {
+            return {
+                error: 'Failed CAPTCHA validation. Please refresh the page and try again.'
+            }
         }
     }
 

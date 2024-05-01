@@ -10,8 +10,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { createLink } from "@/lib/links";
 import { CreateLinkFormState } from "@/types";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { parse } from "date-fns";
-import { useEffect, useMemo, useState } from "react";
+import { RefAttributes, useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom"
 import { toast } from "sonner";
 
@@ -24,6 +25,8 @@ export const CreateLink = () => {
     const [expirationType, setExpirationType] = useState("NONE");
     const [date, setDate] = useState<Date>();
     const [time, setTime] = useState<string>();
+
+    const turnstileRef = useRef<TurnstileInstance>();
 
     const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTime(e.target.value);
@@ -45,6 +48,8 @@ export const CreateLink = () => {
             setExpirationType('NONE');
             setDate(undefined);
             setTime(undefined);
+
+            turnstileRef.current?.reset();
         }
     }, [state]);
 
@@ -122,6 +127,10 @@ export const CreateLink = () => {
                     <Label htmlFor="metaPassthrough" className="cursor-pointer">Show real metadata in link previews</Label>
                 </div>
             </div>
+
+            {process.env.NEXT_PUBLIC_CFTS_SITE_KEY && <Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_CFTS_SITE_KEY} className="self-end" options={{
+                appearance: 'interaction-only'
+            }} />}
 
             <SubmitButton title="Create Link" className="w-fit self-end" />
 
