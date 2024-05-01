@@ -12,7 +12,7 @@ import { createLink } from "@/lib/links";
 import { CreateLinkFormState } from "@/types";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { parse } from "date-fns";
-import { RefAttributes, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom"
 import { toast } from "sonner";
 
@@ -20,7 +20,11 @@ const initialState: CreateLinkFormState = {
     error: null
 };
 
-export const CreateLink = () => {
+type ComponentProps = {
+    cftsSiteKey?: string;
+}
+
+export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
     const [state, formAction] = useFormState(createLink, initialState);
     const [expirationType, setExpirationType] = useState("NONE");
     const [date, setDate] = useState<Date>();
@@ -128,7 +132,7 @@ export const CreateLink = () => {
                 </div>
             </div>
 
-            {process.env.NEXT_PUBLIC_CFTS_SITE_KEY && <Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_CFTS_SITE_KEY} className="self-end" options={{
+            {cftsSiteKey && <Turnstile ref={turnstileRef} siteKey={cftsSiteKey} className="self-end" options={{
                 appearance: 'interaction-only'
             }} />}
 
