@@ -1,0 +1,26 @@
+name: linxz
+
+services:
+  linxz:
+    image: ghcr.io/ngregrichardson/linxz:latest
+    container_name: linxz
+    restart: always
+    ports:
+      - 80:3000
+    volumes:
+      - linxz/linxz.db:/app/linxz.db
+    environment:
+      - BASE_URL
+
+      # Uncomment the next line to specify a different local or remote database location
+      # - DB_URL
+
+      # Uncomment the next line to specify an authentication token for a remote database
+      # - DB_AUTH_TOKEN
+
+      # Uncomment the next two lines to use Cloudflare Turnstile
+      # - NEXT_PUBLIC_CFTS_SITE_KEY
+      # - CFTS_SECRET_KEY
+
+volumes:
+  linxz:
