@@ -23,5 +23,5 @@ All steps will use `bun` commands, but you're welcome to replace them with whate
 
 1. Clone the repository
 2. Run `bun install`. I've been [Bun](https://bun.sh/), but it should work on any other runtime (assuming you change a few of the `package.json` scripts).
-3. Add a `.env` file with the following contents: TODO
+3. Add a `.env` file with the following contents
 4. Run `bun dev`.
