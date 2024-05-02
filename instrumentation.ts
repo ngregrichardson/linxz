@@ -17,7 +17,7 @@ export const register = async () => {
         global.process.env.DB_URL = 'file:linxz.db';
     }
 
-    if(process.env.NEXT_RUNTIME === 'nodejs' && global.process.env.DB_URL.startsWith('file:')) {
+    if(process.env.NEXT_RUNTIME === 'nodejs') {
         await import('@/lib/db');
 
         await import('@/lib/db/migrate');
