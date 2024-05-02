@@ -8,6 +8,7 @@
 ## About
 
 Linxz is an easy-to-use, self-hostable, and private link sharing platform. It provides a simple interface to shorten links and includes granular control over their experation. You can specify a date and time or a number of clicks until the link is deleted forever. Or, if you want it forever, that works too.
+
 ## Self-Hosting
 You can technically get it up and running yourself right now, but there is a Docker image on the way!
 
