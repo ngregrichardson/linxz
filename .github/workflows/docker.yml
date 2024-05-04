@@ -2,8 +2,8 @@ name: Build and Deploy to Registry
 
 on:
     push:
-      tags:
-      - '*'
+        tags:
+            '*'
 
 permissions:
     id-token: write
