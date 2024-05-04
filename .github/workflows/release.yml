@@ -11,11 +11,21 @@ permissions:
     pull-requests: write
 
 jobs:
-    release:
+    pr:
         runs-on: ubuntu-latest
         steps:
             - uses: google-github-actions/release-please-action@v4
               id: release
               with:
-                token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+                token: ${{ secrets.GITHUB_TOKEN }}
                 release-type: node
+                skip-github-pull-request: true
+    release:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: google-github-actions/release-please-action@v4
+            id: release
+            with:
+              token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+              release-type: node
+              skip-github-release: true
