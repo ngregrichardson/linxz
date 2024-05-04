@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/ngregrichardson/linxz/compare/v0.1.3...v0.1.4) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deploy:** add latest and version tags to created images ([475fc37](https://github.com/ngregrichardson/linxz/commit/475fc37080331c353971f59f42aac5339b676435))
+
 ## [0.1.3](https://github.com/ngregrichardson/linxz/compare/v0.1.2...v0.1.3) (2024-05-04)
 
 
