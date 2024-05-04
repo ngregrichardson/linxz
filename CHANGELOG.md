@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.2](https://github.com/ngregrichardson/linxz/compare/v0.1.1...v0.1.2) (2024-05-04)
+
+
+### Bug Fixes
+
+* **a11y:** improved accessibility and styling on mobile ([0154ef6](https://github.com/ngregrichardson/linxz/commit/0154ef654efee6ffde44e9db2d4679e0bbb89e13)), closes [#11](https://github.com/ngregrichardson/linxz/issues/11)
+* **deploy:** remove public folder reference from Dockerfile ([784b1a2](https://github.com/ngregrichardson/linxz/commit/784b1a24beccec77459896659b5912831272e759))
+* **deploy:** removed ports from base docker-compose.yml and added override and deployment configs ([6e48cc0](https://github.com/ngregrichardson/linxz/commit/6e48cc0c5e912be57c8ed08b288353ef84e1b349))
+* **edge:** remove edge page rendering ([4c36bd3](https://github.com/ngregrichardson/linxz/commit/4c36bd391fb5502d5d4a06a7c9a4f2c4852eb8de))
+
 ## 0.1.1 (2024-05-04)
 
 
