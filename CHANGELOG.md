@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/ngregrichardson/linxz/compare/v0.1.4...v0.1.5) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deploy:** add extra release step to only run when tags are generated ([128ab81](https://github.com/ngregrichardson/linxz/commit/128ab811500dc9dbc55e657f6ec6b7f1ffea4825))
+
 ## [0.1.4](https://github.com/ngregrichardson/linxz/compare/v0.1.3...v0.1.4) (2024-05-04)
 
 
