@@ -67,12 +67,12 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
             <div className="flex flex-col sm:flex-row items-start gap-3">
                 <div className="flex-1 w-full flex flex-col gap-1">
                     <Label htmlFor="slug">Custom Slug</Label>
-                    <Input id="slug" name="slug" placeholder="Enter custom slug..." className="w-full" startAdornment={<span>/</span>} />
+                    <Input id="slug" name="slug" placeholder="Enter custom slug..." className="w-full" startAdornment={<span className="pointer-events-none">/</span>} />
                 </div>
                 <div className="flex-1 w-full flex flex-col gap-1">
                     <Label htmlFor="expirationType" isRequired>Expires</Label>
                     <Select name="expirationType" value={expirationType} onValueChange={setExpirationType}>
-                        <SelectTrigger>
+                        <SelectTrigger id="expirationType">
                             <SelectValue placeholder="Expiration" />
                         </SelectTrigger>
                         <SelectContent>
@@ -102,7 +102,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
                                 <Input id="expirationValue" name="expirationValue" type="number" placeholder="Enter number of clicks..." className="w-full" min="1" required />
                                 <HoverCard>
                                     <HoverCardTrigger asChild className="self-end">
-                                        <Button variant="link" className="text-xs h-fit py-1 px-2">Sending this to other people?</Button>
+                                        <Button variant="link" className="text-xs h-fit py-1 px-2 active:pointer-events-none" role="tooltip">Sending this to other people?</Button>
                                     </HoverCardTrigger>
                                     <HoverCardContent className="p-2">
                                         <p className="text-sm">You know that cool link preview you get when you send a link in Slack or Discord?<br/><br />We try to ignore them, but those can count as clicks too. Maybe <strong className="text-primary">allow a few extra clicks</strong>, just in case?</p>
@@ -127,7 +127,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
 
             <div className="flex flex-col items-end">
                 <div className="flex items-center gap-2">
-                    <Checkbox id="metaPassthrough" name="metaPassthrough" />
+                    <Checkbox id="metaPassthrough" name="metaPassthrough" aria-label="Show real metadata in link previews" />
                     <Label htmlFor="metaPassthrough" className="cursor-pointer">Show real metadata in link previews</Label>
                 </div>
             </div>
@@ -138,7 +138,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
 
             <SubmitButton title="Create Link" className="w-fit self-end" />
 
-            <p aria-live="polite" className="text-destructive text-center">{state?.error}</p>
+            <p aria-live="polite" className="text-destructive text-center empty:hidden">{state?.error}</p>
         </form>
     )
 }
