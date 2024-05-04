@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.7](https://github.com/ngregrichardson/linxz/compare/v0.1.6...v0.1.7) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deploy:** split release into two jobs to use different access tokens for PRs and releases ([61e976f](https://github.com/ngregrichardson/linxz/commit/61e976f69d349b8a99d4ed77e6648d7e089474c8))
+* **deploy:** switch to using PAT to create releases to trigger future workflows properly ([afa96df](https://github.com/ngregrichardson/linxz/commit/afa96df4bfe6a91a5e09c7f1b9db0a05e78848c1))
+
 ## [0.1.6](https://github.com/ngregrichardson/linxz/compare/v0.1.5...v0.1.6) (2024-05-04)
 
 
