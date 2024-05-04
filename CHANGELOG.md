@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/ngregrichardson/linxz/compare/v0.1.5...v0.1.6) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deploy:** change tag selector in docker.yml ([fd0f5e4](https://github.com/ngregrichardson/linxz/commit/fd0f5e45f64db59734c39dbaaa713b2cea5c7d50))
+
 ## [0.1.5](https://github.com/ngregrichardson/linxz/compare/v0.1.4...v0.1.5) (2024-05-04)
 
 
