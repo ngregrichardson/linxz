@@ -25,7 +25,6 @@ FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /app/.next .next
 COPY --from=prerelease /app/migrations migrations
-COPY --from=prerelease /app/public public
 COPY --from=prerelease /app/package.json .
 COPY --from=prerelease /app/next.config.mjs .
 
