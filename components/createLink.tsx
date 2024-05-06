@@ -49,6 +49,10 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
             toast.success(state.message);
             navigator.clipboard.writeText(state.link);
 
+            umami.track('link_created', {
+                expiration_type: expirationType,
+            });
+
             setExpirationType('NONE');
             setDate(undefined);
             setTime(undefined);
@@ -136,7 +140,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
                 appearance: 'interaction-only'
             }} />}
 
-            <SubmitButton title="Create Link" className="w-fit self-end" data-umami-event="create_link" data-umami-event-expiration_date={expirationType} />
+            <SubmitButton title="Create Link" className="w-fit self-end" />
 
             <p aria-live="polite" className="text-destructive text-center empty:hidden">{state?.error}</p>
         </form>

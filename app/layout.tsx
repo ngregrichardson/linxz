@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {global.process.env.NEXT_PUBLIC_UMAMI_SCRIPT && (
-        <Script defer src={global.process.env.NEXT_PUBLIC_UMAMI_SCRIPT} data-website-id={global.process.env.NEXT_PUBLIC_UMAMI_ID} data-domains={global.process.env.NEXT_PUBLIC_UMAMI_DOMAINS} />
+        <Script defer src={global.process.env.NEXT_PUBLIC_UMAMI_SCRIPT} data-website-id={global.process.env.NEXT_PUBLIC_UMAMI_ID} data-domains={global.process.env.NEXT_PUBLIC_UMAMI_DOMAINS} strategy="lazyOnload" />
       )}
       <body className={cn(
           "min-h-screen bg-background font-sans antialiased",
