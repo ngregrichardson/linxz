@@ -2,3 +2,7 @@ services:
   linxz:
     expose:
       - 3000
+    environment:
+      - NEXT_PUBLIC_UMAMI_SCRIPT
+      - NEXT_PUBLIC_UMAMI_ID
+      - NEXT_PUBLIC_UMAMI_DOMAINS
