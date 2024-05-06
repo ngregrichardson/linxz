@@ -136,7 +136,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
                 appearance: 'interaction-only'
             }} />}
 
-            <SubmitButton title="Create Link" className="w-fit self-end" />
+            <SubmitButton title="Create Link" className="w-fit self-end" data-umami-event="create_link" data-umami-event-expiration_date={expirationType} />
 
             <p aria-live="polite" className="text-destructive text-center empty:hidden">{state?.error}</p>
         </form>
