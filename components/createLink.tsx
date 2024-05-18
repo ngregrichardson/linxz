@@ -10,8 +10,10 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { createLink } from "@/lib/links";
 import { CreateLinkFormState } from "@/types";
+import { useAptabase } from "@aptabase/react";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { parse } from "date-fns";
+import { env } from "next-runtime-env";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom"
 import { toast } from "sonner";
@@ -20,15 +22,15 @@ const initialState: CreateLinkFormState = {
     error: null
 };
 
-type ComponentProps = {
-    cftsSiteKey?: string;
-}
-
-export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
+export const CreateLink = () => {
+    const CFTS_SITE_KEY = env("NEXT_PUBLIC_CFTS_SITE_KEY");
+    const { trackEvent } = useAptabase();
     const [state, formAction] = useFormState(createLink, initialState);
     const [expirationType, setExpirationType] = useState("NONE");
     const [date, setDate] = useState<Date>();
     const [time, setTime] = useState<string>();
+
+    console.log(CFTS_SITE_KEY);
 
     const turnstileRef = useRef<TurnstileInstance>();
 
@@ -49,7 +51,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
             toast.success(state.message);
             navigator.clipboard.writeText(state.link);
 
-            umami.track('link_created', {
+            trackEvent('create_link', {
                 expiration_type: expirationType,
             });
 
@@ -136,7 +138,7 @@ export const CreateLink = ({ cftsSiteKey }: ComponentProps) => {
                 </div>
             </div>
 
-            {cftsSiteKey && <Turnstile ref={turnstileRef} siteKey={cftsSiteKey} className="self-end" options={{
+            {CFTS_SITE_KEY && <Turnstile ref={turnstileRef} siteKey={CFTS_SITE_KEY} className="self-end" options={{
                 appearance: 'interaction-only'
             }} />}
 

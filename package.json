@@ -13,6 +13,8 @@
     "i:mig": "infisical run --env=dev -- bun run lib/db/migrate.ts"
   },
   "dependencies": {
+    "@aptabase/react": "^0.3.3",
+    "@aptabase/web": "^0.4.2",
     "@libsql/client": "^0.6.0",
     "@marsidev/react-turnstile": "^0.6.0",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -29,6 +31,7 @@
     "drizzle-zod": "^0.5.1",
     "lucide-react": "^0.376.0",
     "next": "14.2.3",
+    "next-runtime-env": "^3.2.2",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-day-picker": "^8.10.1",

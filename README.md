@@ -13,13 +13,15 @@ Linxz is an easy-to-use, self-hostable, and private link sharing platform. It pr
 
 ### Environment Variables
 
-| Name                        | Description                                                                                                                                                                    | Default                            | Required |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- | -------- |
-| `BASE_URL`                  | The base url of your applications. Links will be formatted like `<BASE_URL>/l/<slug>`                                                                                          | `http://localhost:3000` (in `dev`) | ✅        |
-| `DB_URL`                    | The URL of your [libSQL](https://github.com/tursodatabase/libsql) database. This can be remote (`http/https`) or local (`file`).                                               | `file:///linxz.db`                 |          |
-| `DB_AUTH_TOKEN`             | The authentication token for your remote database.                                                                                                                             | `undefined`                        |          |
-| `NEXT_PUBLIC_CFTS_SITE_KEY` | Your Cloudflare Turnstile site key. This is used to prevent spam, and there will be no spam protection without it. This is required when `CFTS_SECRET_KEY` is set.             | `undefined`                        |          |
-| `CFTS_SECRET_KEY`           | Your Cloudflare Turnstile secret key. This is used to prevent spam, and there will be no spam protection without it. This is required when `NEXT_PUBLIC_CFTS_SITE_KEY` is set. | `undefined`                        |          |
+| Name                           | Description                                                                                                                                                                    | Default                            | Required |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- | -------- |
+| `BASE_URL`                     | The base url of your applications. Links will be formatted like `<BASE_URL>/l/<slug>`                                                                                          | `http://localhost:3000` (in `dev`) | ✅        |
+| `DB_URL`                       | The URL of your [libSQL](https://github.com/tursodatabase/libsql) database. This can be remote (`http/https`) or local (`file`).                                               | `file:///linxz.db`                 |          |
+| `DB_AUTH_TOKEN`                | The authentication token for your remote database.                                                                                                                             | `undefined`                        |          |
+| `NEXT_PUBLIC_CFTS_SITE_KEY`    | Your Cloudflare Turnstile site key. This is used to prevent spam, and there will be no spam protection without it. This is required when `CFTS_SECRET_KEY` is set.             | `undefined`                        |          |
+| `CFTS_SECRET_KEY`              | Your Cloudflare Turnstile secret key. This is used to prevent spam, and there will be no spam protection without it. This is required when `NEXT_PUBLIC_CFTS_SITE_KEY` is set. | `undefined`                        |          |
+| `NEXT_PUBLIC_APTABASE_HOST`    | The host url of your [Aptabase](https://aptabase.com/) instance (e.g. `https://aptabase.example.com`). This will default to ([Aptabase Cloud](https://aptabase.com/)).         | `undefined`                        |          |
+| `NEXT_PUBLIC_APTABASE_APP_KEY` | The app key of your [Aptabase](https://aptabase.com/) app (e.g. `A-SH-0123456789`). By default, analytics will not be enabled.                                                 | `undefined`                        |          |
 
 ### Using Docker Compose (Recommended)
 1. Create a `docker-compose.yml` file with the following contents:

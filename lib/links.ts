@@ -9,6 +9,8 @@ import { format } from "date-fns";
 import { ulid } from "ulidx";
 import { z } from "zod";
 
+const { NODE_ENV, BASE_URL, CFTS_SECRET_KEY } = process.env;
+
 const filteredSchema = insertLinkSchema.omit({
     id: true,
     clicks: true,
@@ -16,7 +18,7 @@ const filteredSchema = insertLinkSchema.omit({
     expirationValue: z.string().optional().pipe(z.coerce.number().min(0).int().default(0)),
     metaPassthrough: z.string().optional().pipe(z.coerce.boolean().default(false)),
     url: z.string().url(),
-    'cf-turnstile-response': global.process.env.CFTS_SECRET_KEY ? z.string().min(1) : z.string().optional(),
+    'cf-turnstile-response': CFTS_SECRET_KEY ? z.string().min(1) : z.string().optional(),
 });
 
 const AUTO_SLUG_LENGTH = 6;
@@ -31,8 +33,8 @@ export const createLink = async (_: CreateLinkFormState, formData: FormData) => 
         }
     }
 
-    if(global.process.env.CFTS_SECRET_KEY) {
-        const { success } = await validateToken(validatedFields.data['cf-turnstile-response']!, global.process.env.CFTS_SECRET_KEY);
+    if(CFTS_SECRET_KEY) {
+        const { success } = await validateToken(validatedFields.data['cf-turnstile-response']!, CFTS_SECRET_KEY);
 
         if(!success) {
             return {
@@ -56,7 +58,7 @@ export const createLink = async (_: CreateLinkFormState, formData: FormData) => 
 
         const createdLink = newLink[0];
 
-        const url = `${global.process.env.NODE_ENV === 'production' ? global.process.env.BASE_URL : 'http://localhost:3000'}/l/${slug}`;
+        const url = `${NODE_ENV === 'production' ? BASE_URL : 'http://localhost:3000'}/l/${slug}`;
 
         return {
             message: `You link was created and copied to your clipboard! ${createdLink.expirationType === EXPIRATION_TYPE.NONE ? 'This link will never expire.' : `This link will expire ${createdLink.expirationType === EXPIRATION_TYPE.CLICKS ? `after ${createdLink.expirationValue} clicks.` : `after ${format(new Date(createdLink.expirationValue), 'h:mm aaaa \'on\' MMM do, yyyy')}`}`}`,
