@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { AptabaseWrapper } from "@/components/aptabaseWrapper";
 import { PublicEnvScript } from "next-runtime-env";
+import { TrackPageViews } from "@/components/trackEvent";
 
 const comfortaa = Comfortaa({ subsets: ["latin"], variable: '--font-sans' });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           comfortaa.variable)}>
             <AptabaseWrapper>
               {children}
+              <TrackPageViews />
             </AptabaseWrapper>
             <Toaster position="bottom-center" />
       </body>

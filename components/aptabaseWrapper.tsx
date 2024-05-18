@@ -1,20 +1,8 @@
 'use client';
 
-import { AptabaseProvider, useAptabase } from "@aptabase/react";
+import { AptabaseProvider } from "@aptabase/react";
 import { env } from "next-runtime-env";
-import { ReactNode, useEffect } from "react";
-
-const TrackEvent = ({ children }: { children: ReactNode | ReactNode[] }) => {
-    const { trackEvent } = useAptabase();
-
-    useEffect(() => {
-        trackEvent("view", {
-            page: "/"
-        });
-    }, []);
-
-    return children;
-}
+import { ReactNode } from "react";
 
 export const AptabaseWrapper = ({ children }: { children: ReactNode | ReactNode[] }) => {
     const APTABASE_APP_KEY = env('NEXT_PUBLIC_APTABASE_APP_KEY');
@@ -23,9 +11,7 @@ export const AptabaseWrapper = ({ children }: { children: ReactNode | ReactNode[
     return <>
         {APTABASE_APP_KEY ?
             <AptabaseProvider appKey={APTABASE_APP_KEY} options={{ host: APTABASE_HOST }}>
-                <TrackEvent>
-                    {children}
-                </TrackEvent>
+                {children}
             </AptabaseProvider>
         : children}
     </>;
