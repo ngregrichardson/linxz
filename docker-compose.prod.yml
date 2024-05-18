@@ -3,5 +3,6 @@ services:
     expose:
       - 3000
     environment:
+      - NODE_ENV=production
       - NEXT_PUBLIC_APTABASE_HOST
       - NEXT_PUBLIC_APTABASE_APP_KEY

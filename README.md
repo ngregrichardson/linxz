@@ -73,14 +73,14 @@ BASE_URL=http://localhost:80
 5. Once you see it was successful, you can stop the container and start it again using `-d` to run it in the background
 
 ## Contributing
-If you would like to contribute, please feel free to fork the repository and submit a pull request. I will review it as soon as possible. I've been enjoying [Bun](https://bun.sh/), but feel free to develop with your preferred runtime.
+If you would like to contribute, please feel free to fork the repository and submit a pull request. I will review it as soon as possible. I've been enjoying [pnpm](https://pnpm.io/), but feel free to develop with your preferred runtime.
 
-> **Note:** To use this without Bun, you may need to change some `package.json` scripts, add a lock file, etc. Please do not include these changes in your pull request.
+> **Note:** Please do not include other lock files in your pull request.
 
 ### Running for Development
 
-All steps will use `bun` commands, but you're welcome to replace them with whatever you prefer.
+All steps will use `pnpm` commands, but you're welcome to replace them with whatever you prefer.
 
 1. Clone the repository
-2. Run `bun install`
-3. Run `bun dev` and visit [`http://localhost:3000`](http://localhost:3000)
+2. Run `pnpm install`
+3. Run `pnpm dev` and visit [`http://localhost:3000`](http://localhost:3000)

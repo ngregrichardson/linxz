@@ -30,8 +30,6 @@ export const CreateLink = () => {
     const [date, setDate] = useState<Date>();
     const [time, setTime] = useState<string>();
 
-    console.log(CFTS_SITE_KEY);
-
     const turnstileRef = useRef<TurnstileInstance>();
 
     const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
