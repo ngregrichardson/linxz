@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.0](https://github.com/ngregrichardson/linxz/compare/v0.1.7...v0.2.0) (2024-05-18)
+
+
+### Features
+
+* **analytics:** add Umami analytics support ([edf5ce4](https://github.com/ngregrichardson/linxz/commit/edf5ce4f30b84ad4755c006e351f79588e47be5e)), closes [#24](https://github.com/ngregrichardson/linxz/issues/24)
+* **analytics:** switch to Aptabase analytics support ([a4c49db](https://github.com/ngregrichardson/linxz/commit/a4c49db0704cb4a4dabea1b27592ba8382180a9a))
+
+
+### Bug Fixes
+
+* **analytics:** lazily load Umami script and onyl sent `link_created` event on success ([71d299c](https://github.com/ngregrichardson/linxz/commit/71d299c31d4b89d00ffcf85d5f07ff945c95bad4))
+* **analytics:** page view not triggering properly ([c8ebae0](https://github.com/ngregrichardson/linxz/commit/c8ebae011b740d50d4ac353435fd551da97b9e54))
+* **deploy:** add Umami environment variables to production docker-compose.yml ([5305571](https://github.com/ngregrichardson/linxz/commit/53055719c9eaa5c2b012d0407d2bc372c1e9e1b2))
+
 ## [0.1.7](https://github.com/ngregrichardson/linxz/compare/v0.1.6...v0.1.7) (2024-05-04)
 
 
